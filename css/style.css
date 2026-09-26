@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================
+   1. HIỆU ỨNG THIẾT KẾ NỀN (DARK AURA MESH)
+   ========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #090d16; /* Nền tối Cyberpunk / Glassmorphism */
+  /* Tạo hiệu ứng dải ngân hà glowing ở nền */
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+  background-attachment: fixed;
+  color: #f1f5f9;
+  padding: 50px 20px;
+  text-align: center;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   2. HEADER & KHUNG HƯỚNG DẪN KÍNH MỜ
+   ========================================== */
+header h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+  text-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
+
+main > h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 12px;
+}
+
+main > p {
+  color: #94a3b8;
+  max-width: 780px;
+  margin: 0 auto 18px auto;
+  font-size: 1.05rem;
+}
+
+/* Khung hướng dẫn Kính mờ cao cấp (Frosted Glass Container) */
+main > ul {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 780px;
+  margin: 0 auto 35px auto;
+  padding: 26px 36px 26px 52px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+main > ul li {
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  margin-bottom: 12px;
+}
+
+main > ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   3. CÁC THẺ MÀU (DIV & IMG) KÍNH MỜ NỔI 3D
+   ========================================== */
+div {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 24px;
+  margin: 18px auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  /* Chuyển động đàn hồi siêu mượt */
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.45s ease, 
+              border-color 0.45s ease;
+
+  /* Mặc định Mobile */
+  width: 90%;
+  max-width: 360px;
+}
+
+/* Hiệu ứng tia sáng lướt qua thẻ khi hover */
+div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: left 0.7s ease;
+}
+
+div:hover::before {
+  left: 100%;
+}
+
+div:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Ảnh màu sắc bo góc hiện đại */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+  margin: 0 auto 16px auto;
+  object-fit: contain;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+div:hover img {
+  transform: scale(1.05);
+}
+
+/* Nhãn tên màu dạng Badge Neon */
+.label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+/* ==========================================
+   4. HIỆU ỨNG PHÁT SÁNG ĐÚNG THEO TỪNG MÀU THỰC TẾ
+   ========================================== */
+/* Red */
+div:nth-of-type(1):hover {
+  box-shadow: 0 20px 40px rgba(239, 68, 68, 0.35);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+/* Orange */
+div:nth-of-type(2):hover {
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.35);
+  border-color: rgba(249, 115, 22, 0.5);
+}
+/* Yellow */
+div:nth-of-type(3):hover {
+  box-shadow: 0 20px 40px rgba(234, 179, 8, 0.35);
+  border-color: rgba(234, 179, 8, 0.5);
+}
+/* Green */
+div:nth-of-type(4):hover {
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.35);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+/* Blue */
+div:nth-of-type(5):hover {
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.35);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+/* Indigo */
+div:nth-of-type(6):hover {
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.35);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+/* Purple */
+div:nth-of-type(7):hover {
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.35);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+/* Pink */
+div:nth-of-type(8):hover {
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.35);
+  border-color: rgba(236, 72, 153, 0.5);
+}
+/* White */
+div:nth-of-type(9):hover {
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================
+   5. FOOTER & NÚT BẤM NEON
+   ========================================== */
+footer {
+  margin-top: 70px;
+  padding-bottom: 30px;
+}
+
+footer a {
+  display: inline-block;
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 15px 40px;
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+footer a:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 35px rgba(56, 189, 248, 0.5);
+}
+
+/* ==========================================
+   6. MEDIA QUERIES (CHUẨN ĐỀ BÀI 100%)
+   ========================================== */
+
+/* Media Query 1: Màn hình >= 772px */
+@media screen and (min-width: 772px) {
+  div {
+    display: inline-block;
+    width: 45vw;         /* YÊU CẦU 1: Chiều rộng 45vw */
+    margin: 15px 1.2%;
+    vertical-align: top;
+  }
+
+  img {
+    max-height: 30vh;   /* YÊU CẦU 2: Max height 30vh */
+  }
+}
+
+/* Media Query 2: Màn hình >= 998px */
+@media screen and (min-width: 998px) {
+  div {
+    width: 30vw;         /* YÊU CẦU 3: Chiều rộng 30vw */
+    margin: 15px 1%;
+  }
+}
